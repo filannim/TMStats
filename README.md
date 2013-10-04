@@ -1,6 +1,6 @@
 TMStats
 =======
-![ScreenShot](https://raw.github.com/filannim/TMStats/master/_gfx/tempeval_3_5000.png)
+![ScreenShot](https://raw.github.com/filannim/TMStats/master/_gfx/21_0748_0005.png)
 
 This script simulates NLP scientific challenges with a variable number of participants, score ranges and epochs.
 I developed it to show how confident a participant can be of a final official rank. Of course, it is just a statistical simulation with some assumptions which can be too strict.
@@ -8,6 +8,16 @@ I developed it to show how confident a participant can be of a final official ra
 I generate N participants, with their relative final F1 score. I then order them to obtain a rank. I iterate this process EPOCH times and count how many times the expected rank is equal to the simulated rank. The process is affected by the numbers of istances in the test set. You can easily see from the pictures that when you have small test sets the reliability of the rank is low. As expected, the official ranking becomes reliable as soon as we increase the number of test istances.
 
 This was to show that the final ranking of a scientific challenge (that has a certain number of participants) has a statistical significance only if the official benchmark test set is larger than a certaing threshold.
+
+
+
+
+
+
+
+
+
+
 
 ##How to
 
@@ -34,6 +44,19 @@ For example:
     $ python participant.py 0 6000 25 5000 21 0.748 0.0005 0.5
 will compute the graph above using half of the CPU cores you have on your machine.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 ##Content
 * batch_simulation.py
 * participant.py
@@ -50,9 +73,36 @@ Those are the parameters:
 * expected maximum score per challenge = from 30% to 100%, step=5%
 * standard deviations = [0.0001, 0.0002, 0.0005, 0.001, 0.005]
 
-##TO DO
-Participant.py is currently very very slow in reading all the data from temp.mem.
-This is due to the structure of temp.mem. I need to restructure it and slightly modify participant.py.
+
+
+
+
+
+
+
+##Examples
+
+    $ python participant.py 0 5000 25 10000 30 0.95 0.0001
+![ScreenShot](https://raw.github.com/filannim/TMStats/master/_gfx/30_095_0001.png)
+    
+    $ python participant.py 0 5000 25 10000 10 0.95 0.0001
+![ScreenShot](https://raw.github.com/filannim/TMStats/master/_gfx/10_095_0001.png)
+
+    $ python participant.py 0 5000 25 10000 10 0.95 0.0005
+![ScreenShot](https://raw.github.com/filannim/TMStats/master/_gfx/10_095_0005.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ##License
 
